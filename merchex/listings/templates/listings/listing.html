@@ -1,0 +1,20 @@
+{% extends 'listings/base.html' %}
+{% block content %}
+<a href="{% url 'band-list' %}">Groupes - </a>
+<a href="{% url 'about-us' %}">A propos de nous - </a>
+<a href="{% url 'contact-us' %}">Conactez-nous</a>
+<h1>Listing</h1>
+<a href="{% url 'listing-add' %}">Creer un nouveau listing</a>
+<ul>
+
+	{% for listing in listings %}
+	<li>
+		<a href="{% url 'listing-detail' listing.id %}">{{ listing.title|upper }}</a>
+		- <a href="{% url 'listing-update' listing.id %}">[Modifier]</a>
+		- <a href="{% url 'listing-delete' listing.id %}">[Supprimer]</a>
+	</li>
+
+	{% endfor %}
+
+</ul>
+{% endblock %}

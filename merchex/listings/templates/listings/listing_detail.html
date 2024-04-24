@@ -1,0 +1,17 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+<a href="{% url 'band-list' %}">Groupes - </a>
+<a href="{% url 'listing' %}">Liste - </a>
+<a href="{% url 'about-us' %}">A propos de nous - </a>
+<a href="{% url 'contact-us' %}">Conactez-nous</a>
+<h2>{{ listing.title }}</h2>
+<ul>
+	<li>type: {{ listing.get_genre_display }}</li>
+	<li>Annee: {{ listing.year_formed }}</li>
+	<li>sold: {{ listing.sold|yesno }}</li>
+	</ul>
+<p>{{ listing.description }}</p>
+
+
+{% endblock %}

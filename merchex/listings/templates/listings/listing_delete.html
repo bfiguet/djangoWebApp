@@ -1,0 +1,17 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+<a href="{% url 'band-list' %}">Groupes - </a>
+<a href="{% url 'listing' %}">Liste - </a>
+<a href="{% url 'about-us' %}">A propos de nous - </a>
+<a href="{% url 'contact-us' %}">Conactez-nous</a>
+
+<h1>Supprimer ce listing</h1>
+<!--<form action="" method="post" novalidate>-->
+<p>Etes-vous sur de vouloir supprimer cette liste : {{ listing.title }}?</p>
+<form action="" method="post" >
+	{% csrf_token %}
+	<input type="submit" value="Supprimer">
+</form>
+
+{% endblock %}

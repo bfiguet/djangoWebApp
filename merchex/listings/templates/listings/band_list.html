@@ -1,0 +1,28 @@
+{% extends 'listings/base.html' %}
+{% block content %}
+<a href="{% url 'listing' %}">Liste - </a>
+<a href="{% url 'about-us' %}">A propos de nous - </a>
+<a href="{% url 'contact-us' %}">Conactez-nous</a>
+<h1>Groupes</h1>
+
+<!--<p>J'ai {{ bands|length }} groupes préférés</p>
+
+<p>Mes groupes préférés sont :</p>-->
+<p><a href="{% url 'band-add' %}">Creer un nouveau groupe</a></p>
+
+<ul>
+
+	{% for band in bands %}
+
+	<li>
+		<a href="{% url 'band-detail' band.id %}">{{ band.name|upper }}</a>
+		- <a href="{% url 'band-update' band.id %}">[Modifier]</a>
+		- <a href="{% url 'band-delete' band.id %}">[Supprimer]</a>
+	</li>
+
+	{% endfor %}
+
+</ul>
+<h3>Hey! Envie de nous dire quelque chose?</h3>
+	<p>C'est juste <a href="{% url 'contact-us' %}">ici</a></p>
+{% endblock %}
